@@ -25,9 +25,9 @@
         .top-left-nav { position: absolute; top: 20px; left: 20px; }
         .top-right-nav { position: absolute; top: 20px; right: 20px; }
         
-        /* Logo Custom diperbesar 5% dari 50px menjadi 52.5px */
+        /* Logo Custom */
         .bottom-left-logo { 
-            position: absolute; bottom: 20px; left: 20px; width: 52.5px; height: 52.5px; 
+            position: absolute; bottom: 20px; left: 20px; width: 50px; height: 50px; 
             display: flex; align-items: center; justify-content: center;
             opacity: 0; transform: scale(0); animation: fadeInScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; animation-delay: 1s;
         }
@@ -41,8 +41,7 @@
         .chat-container { display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 40px; position: relative; width: 100%; max-width: 400px; }
         .character-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; }
         
-        /* Gambar diperbesar 10% dari 120px menjadi 132px */
-        .person-img { width: 132px; height: auto; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .person-img { width: 120px; height: auto; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         
         .float-anim { animation: float 4s ease-in-out infinite; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
@@ -77,7 +76,6 @@
         <a href="https://ipix.my.id" class="pill-link">ipix.my.id</a>
     </div>
 
-    <!-- Logo Lokal -->
     <div class="bottom-left-logo">
         <img src="logo.png" alt="Logo">
     </div>
@@ -85,14 +83,12 @@
     <div class="chat-container">
         <div class="character-wrapper">
             <div class="deco" id="bubbleLeft">...</div>
-            <!-- Gambar Lokal Kiri diperbesar -->
-            <img src="pemanggil_kiri.png" id="imgLeft" class="person-img float-anim" alt="Orang 1">
+            <img src="pemanggil_kiri.png" id="imgLeft" class="person-img float-anim" alt="Orang Kiri">
         </div>
         
         <div class="character-wrapper">
             <div class="deco" id="bubbleRight">...</div>
-            <!-- Gambar Lokal Kanan diperbesar -->
-            <img src="pemanggil_kanan.png" id="imgRight" class="person-img float-anim" alt="Orang 2">
+            <img src="pemanggil_kanan.png" id="imgRight" class="person-img float-anim" alt="Orang Kanan">
         </div>
     </div>
 
@@ -112,6 +108,12 @@
         
         let step = 0;
 
+        // Daftar aset gambar Anda di folder
+        const daftarFoto = {
+            kiri: ["pemanggil_kiri.png", "pemanggil_kiri_2.png"],
+            kanan: ["pemanggil_kanan.png", "pemanggil_kanan_2.png"]
+        };
+
         function animateCharacter(activeSide) {
             if(activeSide === 'left') {
                 imgLeft.classList.add('active-move');
@@ -129,31 +131,36 @@
         function updateConversation() {
             switch(step) {
                 case 0:
-                    bLeft.innerText = "Halo";
+                    // 1. KIRI (Foto 1) bergerak & bicara
+                    imgLeft.src = daftarFoto.kiri[0];
+                    bLeft.innerText = "Halo!";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 1:
-                    bRight.innerText = "Apa kabar ?";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    break;
-                case 2:
-                    bLeft.innerText = "Baik";
+                    // 2. KIRI BERUBAH (Foto 2) bergerak & bicara
+                    imgLeft.src = daftarFoto.kiri[1];
+                    bLeft.innerText = "Ada yang bisa kami bantu?";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
-                case 3:
-                    bLeft.innerText = "Kamu apa kabar ?";
-                    animateCharacter('left');
+                case 2:
+                    // 3. KANAN (Foto 1) bergerak & bicara
+                    imgRight.src = daftarFoto.kanan[0];
+                    bRight.innerText = "Hai juga!";
+                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
+                    animateCharacter('right');
                     break;
-                case 4:
-                    bRight.innerText = "Baik juga";
+                case 3:
+                    // 4. KANAN BERUBAH (Foto 2) bergerak & bicara
+                    imgRight.src = daftarFoto.kanan[1];
+                    bRight.innerText = "Kami siap melayani kamu.";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
             }
-            step = (step + 1) % 5;
+            // Mengulang urutan dari step 0 sampai 3 (total 4 langkah)
+            step = (step + 1) % 4;
         }
 
         setInterval(updateConversation, 2000);
