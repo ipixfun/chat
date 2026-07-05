@@ -108,7 +108,7 @@
         
         let step = 0;
 
-        // Daftar 4 foto Anda di dalam folder
+        // Daftar foto Anda
         const daftarFoto = {
             kiri: ["pemanggil_kiri.png", "pemanggil_kiri_2.png"],
             kanan: ["pemanggil_kanan.png", "pemanggil_kanan_2.png"]
@@ -131,84 +131,83 @@
         function updateConversation() {
             switch(step) {
                 case 0:
-                    // Kiri Bicara -> Kiri 1
+                    // Kiri -> Foto Kiri 1 (Biasa)
                     imgLeft.src = daftarFoto.kiri[0];
                     bLeft.innerText = "Halo";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 1:
-                    // Kanan Merespon -> Kanan 1
+                    // Kanan -> Foto Kanan 1 (Biasa)
                     imgRight.src = daftarFoto.kanan[0];
                     bRight.innerText = "Hi juga, Apa kabar ?";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 2:
-                    // Kiri Menjawab -> Kiri 1
+                    // Kiri -> Foto Kiri 1 (Biasa)
                     imgLeft.src = daftarFoto.kiri[0];
                     bLeft.innerText = "Baik";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 3:
-                    // Kiri Bertanya -> Ganti Kiri 2
-                    imgLeft.src = daftarFoto.kiri[1];
+                    // Kiri -> Foto Kiri 1 (Biasa)
+                    imgLeft.src = daftarFoto.kiri[0];
                     bLeft.innerText = "Kalau kamu, Gimana ?";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 4:
-                    // Kanan Menjawab -> Ganti ke Kanan 2
-                    imgRight.src = daftarFoto.kanan[1];
+                    // Kanan -> Foto Kanan 1 (Biasa)
+                    imgRight.src = daftarFoto.kanan[0];
                     bRight.innerText = "Baik juga";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 5:
-                    // Kanan Bertanya Baru -> Kanan 1
-                    imgLeft.src = daftarFoto.kanan[0];
-                    bLeft.innerText = "Kamu lagi sibuk apa?";
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    break;
-                case 6:
-                    // Kiri Menjawab Gombalan -> Kembali ke Kiri 2
-                    imgRight.src = daftarFoto.kiri[2];
-                    bRight.innerText = "Lagi sibuk mikirin kamu";
+                    // Kanan -> Foto Kanan 1 (Biasa)
+                    imgRight.src = daftarFoto.kanan[0];
+                    bRight.innerText = "Kamu lagi sibuk apa?";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
-                case 7:
-                    // Kanan Merespon -> Ganti ke kanan 2
-                    imgLeft.src = daftarFoto.kanan[0];
-                    bLeft.innerText = "Hoooeeekkk";
+                case 6:
+                    // Kiri -> Foto Kiri 1 (Biasa)
+                    imgLeft.src = daftarFoto.kiri[0];
+                    bLeft.innerText = "Lagi sibuk mikirin kamu";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
+                case 7:
+                    // Kanan -> Foto Kanan 1 (Biasa)
+                    imgRight.src = daftarFoto.kanan[0];
+                    bRight.innerText = "Hoooeeekkk";
+                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
+                    animateCharacter('right');
+                    break;
                 case 8:
-                    // Kanan Tertawa -> Ganti ke Kanan 2
-                    imgRight.src = daftarFoto.kanan[1];
+                    // Kanan -> Foto Kanan 1 (Biasa)
+                    imgRight.src = daftarFoto.kanan[0];
                     bRight.innerText = "Hihihi";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 9:
-                    // Kiri Tertawa -> Tetap Kiri 2
+                    // DIALOG AKHIR ke-2: Kiri -> Ganti ke Foto Kiri 2 (Tersenyum)
                     imgLeft.src = daftarFoto.kiri[1];
                     bLeft.innerText = "Hahaha";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 10:
-                    // Kanan Merespon Akhir -> Kembali ke Kanan 1
-                    imgRight.src = daftarFoto.kanan[0];
+                    // DIALOG AKHIR ke-1: Kanan -> Ganti ke Foto Kanan 2 (Tersenyum)
+                    imgRight.src = daftarFoto.kanan[1];
                     bRight.innerText = "Hmm...";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
             }
-            // Mengulang urutan setelah step terakhir (total 11 percakapan)
             step = (step + 1) % 11;
         }
 
