@@ -140,13 +140,13 @@
                 case 1:
                     // Kanan Merespon -> Kanan 1
                     imgRight.src = daftarFoto.kanan[0];
-                    bRight.innerText = "Apa kabar ?";
+                    bRight.innerText = "Hi juga, Apa kabar ?";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 2:
-                    // Kiri Menjawab -> Ganti ke Kiri 1
-                    imgLeft.src = daftarFoto.kiri[1];
+                    // Kiri Menjawab -> Kiri 1
+                    imgLeft.src = daftarFoto.kiri[0];
                     bLeft.innerText = "Baik";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
@@ -154,7 +154,7 @@
                 case 3:
                     // Kiri Bertanya -> Ganti Kiri 2
                     imgLeft.src = daftarFoto.kiri[1];
-                    bLeft.innerText = "Kamu apa kabar ?";
+                    bLeft.innerText = "Kalau kamu, Gimana ?";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
@@ -166,22 +166,22 @@
                     animateCharacter('right');
                     break;
                 case 5:
-                    // Kiri Bertanya Baru -> Kembali ke Kiri 1
-                    imgLeft.src = daftarFoto.kiri[0];
+                    // Kanan Bertanya Baru -> Kanan 1
+                    imgLeft.src = daftarFoto.kanan[0];
                     bLeft.innerText = "Kamu lagi sibuk apa?";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
                 case 6:
-                    // Kanan Menjawab Gombalan -> Kembali ke Kanan 1
-                    imgRight.src = daftarFoto.kanan[0];
+                    // Kiri Menjawab Gombalan -> Kembali ke Kiri 2
+                    imgRight.src = daftarFoto.kiri[2];
                     bRight.innerText = "Lagi sibuk mikirin kamu";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 7:
-                    // Kiri Merespon -> Ganti ke Kiri 2
-                    imgLeft.src = daftarFoto.kiri[1];
+                    // Kanan Merespon -> Ganti ke kanan 2
+                    imgLeft.src = daftarFoto.kanan[0];
                     bLeft.innerText = "Hoooeeekkk";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
@@ -189,14 +189,14 @@
                 case 8:
                     // Kanan Tertawa -> Ganti ke Kanan 2
                     imgRight.src = daftarFoto.kanan[1];
-                    bRight.innerText = "Hahaha";
+                    bRight.innerText = "Hihihi";
                     bRight.style.opacity = 1; bLeft.style.opacity = 0;
                     animateCharacter('right');
                     break;
                 case 9:
                     // Kiri Tertawa -> Tetap Kiri 2
                     imgLeft.src = daftarFoto.kiri[1];
-                    bLeft.innerText = "Hihihi";
+                    bLeft.innerText = "Hahaha";
                     bLeft.style.opacity = 1; bRight.style.opacity = 0;
                     animateCharacter('left');
                     break;
