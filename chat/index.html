@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Reset Dasar */
         * { 
             margin: 0; 
             padding: 0; 
@@ -17,7 +16,6 @@
             font-family: 'Quicksand', sans-serif; 
         }
 
-        /* Latar Belakang Gradasi Hijau WhatsApp */
         body { 
             min-height: 100vh; 
             display: flex; 
@@ -25,7 +23,7 @@
             align-items: center; 
             background: linear-gradient(135deg, #075E54, #128C7E, #25D366);
             background-size: 400% 400%;
-            animation: gradientMove 10s ease infinite;
+            animation: gradientMove 15s ease infinite;
             overflow: hidden; 
             position: relative;
         }
@@ -36,7 +34,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Container Utama */
         .wrapper {
             position: relative;
             display: flex;
@@ -47,120 +44,110 @@
             padding: 20px;
         }
 
-        /* Teks Utama iPix ChaT dengan Efek Glassy Bold */
+        /* Pill dengan Garis Tipis Elegan */
+        .top-pill {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            margin-bottom: 15px;
+            padding: 12px 34px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.5); /* Garis tipis */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2),
+                        inset 0 2px 6px rgba(255,255,255,0.3);
+            transition: all 0.4s ease;
+            z-index: 3;
+        }
+
+        .top-pill:hover {
+            border-color: rgba(255, 255, 255, 0.85);
+            background: rgba(255,255,255,0.18);
+            transform: scale(1.04);
+        }
+
         .glass-title {
-            font-size: 3.5rem;
+            font-size: 3.4rem;
             font-weight: 800; 
             margin-bottom: 25px;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.35);
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            text-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.15),
-                inset 0 2px 4px rgba(255, 255, 255, 0.2);
-            padding: 5px 30px;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.32);
+            -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.55);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
 
-        /* Kapsul Kaca (Capsule Glass) */
         .capsule-glass {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.09);
             backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
             padding: 35px 50px; 
             border-radius: 100px; 
             text-align: center; 
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.2),
-                inset 0 1px 2px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
             z-index: 2;
-            margin-bottom: 20px;
         }
 
-        /* Teks Di Dalam Kapsul - Glassy Calm */
         .capsule-glass p {
-            font-size: 1.5rem;
+            font-size: 1.55rem;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.95);
             margin-bottom: 25px;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(18, 140, 126, 0.4);
         }
 
-        /* Container Loading Bar */
         .loading-container {
             width: 100%;
             background: rgba(255, 255, 255, 0.12);
             border-radius: 100px;
             padding: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Bar Loading Memanjang Hijau Stabilo Kalem */
         .loading-bar {
             height: 10px;
             width: 0%;
             background: linear-gradient(90deg, #25D366, #34D399, #00FF87);
             border-radius: 100px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.7);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.8);
             animation: loadProgress 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
         }
 
         @keyframes loadProgress {
             0% { width: 0%; }
-            50% { width: 75%; }
+            50% { width: 78%; }
             100% { width: 100%; }
         }
 
-        /* Gelembung Hijau di Area Tengah Belakang */
+        .domain-links a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .domain-links a:hover {
+            color: white;
+            text-shadow: 0 0 12px rgba(255,255,255,0.6);
+        }
+
         .bubble {
             position: absolute;
-            background: rgba(37, 211, 102, 0.2);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(37, 211, 102, 0.25);
+            background: rgba(37, 211, 102, 0.18);
+            border: 1px solid rgba(37, 211, 102, 0.3);
             border-radius: 50%;
             z-index: 1;
-            animation: float 7s ease-in-out infinite;
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.1);
+            animation: float 8s ease-in-out infinite;
         }
 
-        /* Posisi Gelembung */
-        .bubble-1 { width: 140px; height: 140px; top: -15px; left: -25px; animation-delay: 0s; }
-        .bubble-2 { width: 180px; height: 180px; bottom: -35px; right: -25px; animation-delay: 2s; }
-        .bubble-3 { width: 90px; height: 90px; top: 45%; left: -55px; animation-delay: 4s; animation-duration: 5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-            50% { transform: translateY(-12px) scale(1.04) rotate(8deg); }
-        }
+        .bubble-1 { width: 150px; height: 150px; top: -20px; left: -30px; }
+        .bubble-2 { width: 190px; height: 190px; bottom: -40px; right: -30px; animation-delay: 2.5s; }
+        .bubble-3 { width: 95px; height: 95px; top: 48%; left: -60px; animation-delay: 4s; }
     </style>
-
-    <script type="text/javascript">
-        window.$crisp=[];
-        window.CRISP_WEBSITE_ID="a23603f3-1d3e-4482-9304-f23df40093df";
-        (function(){
-            d=document;
-            s=d.createElement("script");
-            s.src="https://client.crisp.chat/l.js";
-            s.async=1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-
-        // Memaksa chat langsung terbuka saat siap
-        window.onload = function() {
-            var checkCrisp = setInterval(function() {
-                if (typeof $crisp !== "undefined") {
-                    $crisp.push(["do", "chat:open"]);
-                    clearInterval(checkCrisp);
-                }
-            }, 500);
-        };
-    </script>
 </head>
 <body>
 
@@ -170,6 +157,11 @@
         <div class="bubble bubble-2"></div>
         <div class="bubble bubble-3"></div>
 
+        <!-- Pill dengan garis tipis mengelilingi -->
+        <a href="https://ipix.my.id" target="_blank" class="top-pill">
+            ipix.my.id
+        </a>
+
         <div class="glass-title">iPix ChaT</div>
 
         <div class="capsule-glass">
@@ -178,6 +170,10 @@
             <div class="loading-container">
                 <div class="loading-bar"></div>
             </div>
+        </div>
+
+        <div class="domain-links" style="margin-top: 25px;">
+            <a href="https://ipix.fun" target="_blank">ipix.fun</a>
         </div>
 
     </div>
