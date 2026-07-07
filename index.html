@@ -3,92 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang di Layanan Kami</title>
+    <title>ipix.my.id | iPixChaT</title>
     <script>window.$crisp=[];window.CRISP_WEBSITE_ID="a23603f3-1d3e-4482-9304-f23df40093df";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.head.appendChild(s)})();</script>
     <style>
         *{box-sizing:border-box;margin:0;padding:0;font-family:'-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
         body{background:#0b0f19;color:#f3f4f6;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;padding:20px;overflow-x:hidden;position:relative}
 
-        @keyframes fadeInScaleLogo{from{opacity:0;transform:translateX(-50%)scale(0)}to{opacity:1;transform:translateX(-50%)scale(1)}}
-
         .top-left-nav{position:absolute;top:20px;left:20px;z-index:20}
+        .top-center-nav{position:absolute;top:20px;left:50%;transform:translateX(-50%);z-index:20}
         .top-right-nav{position:absolute;top:20px;right:20px;z-index:20}
-        .pill-link{display:inline-block;background:rgba(255,255,255,.05);color:#fff;padding:8px 20px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none;border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);transition:transform .3s}
-        .pill-link:hover{transform:scale(1.05);background:rgba(255,255,255,.1)}
+        
+        .pill-link{
+            display:inline-block;
+            background:rgba(255,255,255,.05);
+            color:#fff;
+            padding:8px 20px;
+            border-radius:50px;
+            font-size:.9rem;
+            font-weight:600;
+            text-decoration:none;
+            border:1px solid rgba(255,255,255,.1);
+            backdrop-filter:blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pill-link:hover{
+            transform:scale(1.08);
+            background:rgba(255,255,255,.15);
+        }
+        .center-pill{
+            background:linear-gradient(90deg,#22c55e,#06b6d4);
+            color:#000;
+            border:1px solid rgba(34,211,238,.9);
+            box-shadow:0 4px 20px rgba(34,211,238,.5);
+        }
+        .center-pill:hover{
+            box-shadow:0 6px 25px rgba(34,211,238,.7);
+        }
 
-        .chat-container{display:flex;justify-content:center;align-items:center;gap:40px;margin:40px 0 55px;position:relative;width:100%;max-width:400px}
-        .character-wrapper{position:relative;display:flex;flex-direction:column;align-items:center;width:120px;height:150px}
+        /* Garis Lengkung */
+        .curve {
+            position: absolute;
+            top: 125px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 260px;
+            height: 60px;
+            border: 3px solid #22d3ee;
+            border-radius: 50%;
+            border-top: none;
+            z-index: 5;
+            opacity: 0.85;
+        }
+
+        .chat-container{display:flex;justify-content:center;align-items:center;gap:35px;margin:35px 0 20px;position:relative;width:100%;max-width:400px}
+        .character-wrapper{position:relative;display:flex;flex-direction:column;align-items:center;width:125px;height:160px;z-index:10}
         .img-container{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(0.34,1.56,0.64,1)}
         .person-img{position:absolute;top:0;left:0;width:100%;height:auto;transition:opacity .5s ease-in-out}
 
-        .float-anim{animation:float 4.5s ease-in-out infinite}
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .float-anim{animation:float 4.2s ease-in-out infinite}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-        .active-move{transform:scale(1.22) translateY(-18px);animation:softSway 4s ease-in-out infinite}
-        @keyframes softSway{
-            0%,100%{transform:scale(1.22) translateY(-18px) rotate(0deg)}
-            25%{transform:scale(1.22) translateY(-14px) rotate(1.8deg)}
-            50%{transform:scale(1.22) translateY(-22px) rotate(-1.2deg)}
-            75%{transform:scale(1.22) translateY(-16px) rotate(1.5deg)}
-        }
+        .active-move{transform:scale(1.18) translateY(-15px);animation:softSway 3.8s ease-in-out infinite}
+        @keyframes softSway{0%,100%{transform:scale(1.18) translateY(-15px) rotate(0deg)}25%{transform:scale(1.18) translateY(-10px) rotate(2deg)}50%{transform:scale(1.18) translateY(-20px) rotate(-1.5deg)}75%{transform:scale(1.18) translateY(-13px) rotate(1.8deg)}}
 
-        .deco{position:absolute;top:-58px;border-radius:50px;padding:8px 18px;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:600;white-space:nowrap;animation:floatBubble 3.8s ease-in-out infinite;box-shadow:0 4px 12px rgba(0,0,0,.25);opacity:0;min-height:34px;z-index:10;transition:all .4s ease}
-        @keyframes floatBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+        .deco{position:absolute;top:-55px;border-radius:50px;padding:7px 16px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;white-space:nowrap;animation:floatBubble 3.6s ease-in-out infinite;box-shadow:0 4px 15px rgba(0,0,0,.4);opacity:0;min-height:32px;z-index:12}
+        @keyframes floatBubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
-        #bubbleLeft{background:rgba(2,184,117,.25);color:#86efac;border:1px solid rgba(2,184,117,.5);backdrop-filter:blur(8px)}
-        #bubbleRight{background:rgba(14,165,233,.25);color:#bae6fd;border:1px solid rgba(14,165,233,.5);backdrop-filter:blur(8px)}
+        /* Bubble */
+        #bubbleLeft{background:rgba(74,222,128,.25);color:#4ade80;border:1px solid rgba(74,222,128,.7)}
+        #bubbleRight{background:rgba(34,211,238,.25);color:#67e8f9;border:1px solid rgba(34,211,238,.7)}
 
-        .card{position:relative;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px);padding:82px 30px 40px;border-radius:24px;width:90%;max-width:480px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+        .card{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(18px);padding:85px 30px 45px;border-radius:28px;width:90%;max-width:460px;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,.5);margin-top:20px}
 
-        /* Logo Full Bulat Sesuai Lingkar Hitam */
+        /* Logo Circle dengan gradasi ijo-biru */
         .card-logo{
             position:absolute;
-            top:-62px;
+            top:-68px;
             left:50%;
             transform:translateX(-50%);
-            width:118px;
-            height:118px;
+            width:125px;
+            height:125px;
             background:#0b0f19;
             border-radius:50%;
-            border:4px solid rgba(255,255,255,0.25);
-            box-shadow:0 8px 25px rgba(0,0,0,0.5);
+            border:5px solid transparent;
+            background-image: linear-gradient(#0b0f19, #0b0f19), linear-gradient(90deg,#22c55e,#06b6d4);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
             overflow:hidden;
-            z-index:15;
-            opacity:0;
-            animation:fadeInScaleLogo 1s cubic-bezier(0.175,.885,.32,1.275) forwards;
-            animation-delay:.4s;
+            z-index:20;
+            box-shadow:0 10px 30px rgba(0,0,0,.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s ease;
         }
-        .card-logo img{
+        .card-logo:hover{
+            transform:translateX(-50%) scale(1.05);
+        }
+        .card-logo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid rgba(34,211,238,0.5);
+            border-radius: 50%;
+            z-index: -1;
+            animation: ringPulse 4s ease-in-out infinite;
+        }
+        @keyframes ringPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.08); }
+        }
+        .card-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+
+        .fade-text{opacity:0;animation:fadeInUp 1s ease forwards;animation-delay:.5s}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+
+        .typing-cursor{border-right:2.5px solid #22d3ee;animation:blink-caret .8s step-end infinite}
+        @keyframes blink-caret{from,to{border-color:transparent}50%{border-color:#22d3ee}}
+
+        h1{font-size:1.65rem;font-weight:700;margin-bottom:10px;color:#fff}
+        #typing-text{font-size:1.05rem;color:#a1a1aa;line-height:1.5;margin-bottom:28px;min-height:1.6em}
+
+        /* CTA Button dengan gradasi ijo-biru + gerak lembut */
+        .cta-btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
             width:100%;
-            height:100%;
-            object-fit:cover;
-            display:block;
+            padding:16px 20px;
+            color:#000;
+            border:none;
+            border-radius:16px;
+            font-size:1.05rem;
+            font-weight:700;
+            cursor:pointer;
+            background:linear-gradient(90deg,#22c55e,#06b6d4);
+            box-shadow:0 6px 25px rgba(34,211,238,.5);
+            text-decoration:none;
+            margin-top:5px;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
-
-        .fade-text{opacity:0;animation:fadeInUp 1s ease forwards;animation-delay:.6s}
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-
-        .typing-cursor{border-right:2px solid #02b875;animation:blink-caret .75s step-end infinite}
-        @keyframes blink-caret{from,to{border-color:transparent}50%{border-color:#02b875}}
-
-        h1{font-size:1.6rem;font-weight:700;margin-bottom:12px;color:#fff}
-        #typing-text{font-size:1rem;color:#9ca3af;line-height:1.6;margin-bottom:30px;min-height:1.6em}
-
-        .cta-btn{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:16px 24px;color:#000;border:none;border-radius:14px;font-size:1rem;font-weight:700;cursor:pointer;background:linear-gradient(90deg,#02b875,#0ea5e9,#02b875);background-size:300% 300%;box-shadow:0 4px 15px rgba(2,184,117,.3);animation:gradientMove 4s ease infinite;text-decoration:none}
-        @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-
-        @media(max-width:480px){
-            .chat-container{margin:25px 0 45px;gap:30px}
-            .card{padding:74px 22px 35px}
-            .card-logo{width:106px;height:106px;top:-55px}
+        .cta-btn:hover{
+            transform: translateY(-3px) scale(1.03);
+            box-shadow:0 10px 30px rgba(34,211,238,.7);
         }
     </style>
 </head>
 <body>
     <div class="top-left-nav"><a href="https://ipix.fun" class="pill-link">iPix.Fun</a></div>
+    <div class="top-center-nav"><a href="https://ipixchat.my.id" class="pill-link center-pill">iPixChaT</a></div>
     <div class="top-right-nav"><a href="https://ipix.my.id" class="pill-link">ipix.my.id</a></div>
 
     <div class="chat-container">
+        <div class="curve"></div>
+        
         <div class="character-wrapper">
             <div class="deco" id="bubbleLeft">...</div>
             <div class="img-container float-anim" id="containerLeft">
@@ -115,6 +186,7 @@
     </div>
 
     <script>
+        // Script tetap sama seperti sebelumnya
         const bLeft=document.getElementById('bubbleLeft'), bRight=document.getElementById('bubbleRight');
         const cLeft=document.getElementById('containerLeft'), cRight=document.getElementById('containerRight');
         let step=0, bubbleTimeout, nextDialogTimeout;
@@ -158,109 +230,36 @@
 
         function updateConversation() {
             clearTimeout(nextDialogTimeout);
-            const delay = (ms) => new Promise(resolve => nextDialogTimeout = setTimeout(resolve, ms));
+            const delay = (ms) => new Promise(r => nextDialogTimeout = setTimeout(r, ms));
 
-            switch(step) {
-                case 0:
-                    changeImageCrossFade('left', daftarFoto.kiri[2]);
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    typeWriterBubble(bLeft, "Hai saya iPix Salam kenal", 45, () => delay(1800).then(() => {step=1; updateConversation();}));
-                    break;
-                case 1:
-                    changeImageCrossFade('right', daftarFoto.kanan[3]);
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    typeWriterBubble(bRight, "Hai juga, saya Chubby Salam kenal", 45, () => delay(1900).then(() => {step=2; updateConversation();}));
-                    break;
-                case 2:
-                    changeImageCrossFade('right', daftarFoto.kanan[0]);
-                    bRight.innerText = "Kamu apa kabar ?";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(1600).then(() => {step=3; updateConversation();});
-                    break;
-                case 3:
-                    changeImageCrossFade('left', daftarFoto.kiri[2]);
-                    bLeft.innerText = "Baik";
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    delay(1300).then(() => {step=4; updateConversation();});
-                    break;
-                case 4:
-                    changeImageCrossFade('left', daftarFoto.kiri[0]);
-                    bLeft.innerText = "Apa kabar kamu ?";
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    delay(1700).then(() => {step=5; updateConversation();});
-                    break;
-                case 5:
-                    changeImageCrossFade('right', daftarFoto.kanan[0]);
-                    bRight.innerText = "Baik juga";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(1500).then(() => {step=6; updateConversation();});
-                    break;
-                case 6:
-                    changeImageCrossFade('right', daftarFoto.kanan[0]);
-                    bRight.innerText = "Tinggal dimana?";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(1650).then(() => {step=7; updateConversation();});
-                    break;
-                case 7:
-                    changeImageCrossFade('left', daftarFoto.kiri[0]);
-                    bLeft.innerText = "Dihatimuuu";
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    delay(1850).then(() => {step=8; updateConversation();});
-                    break;
-                case 8:
-                    changeImageCrossFade('right', daftarFoto.kanan[2]);
-                    bRight.innerText = "Hoooeeekkk";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(1550).then(() => {step=9; updateConversation();});
-                    break;
-                case 9:
-                    changeImageCrossFade('right', daftarFoto.kanan[1]);
-                    bRight.innerText = "Gombal";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(1450).then(() => {step=10; updateConversation();});
-                    break;
-                case 10:
-                    changeImageCrossFade('left', daftarFoto.kiri[1]);
-                    bLeft.innerText = "Hahaha";
-                    bLeft.style.opacity = 1; bRight.style.opacity = 0;
-                    animateCharacter('left');
-                    delay(1750).then(() => {step=11; updateConversation();});
-                    break;
-                case 11:
-                    changeImageCrossFade('right', daftarFoto.kanan[0]);
-                    bRight.innerText = "Hmm...";
-                    bRight.style.opacity = 1; bLeft.style.opacity = 0;
-                    animateCharacter('right');
-                    delay(2200).then(() => {step=0; updateConversation();});
-                    break;
+            switch(step){
+                case 0: changeImageCrossFade('left',daftarFoto.kiri[2]); bLeft.style.opacity=1; bRight.style.opacity=0; animateCharacter('left');
+                    typeWriterBubble(bLeft,"Hai saya iPix Salam kenal",45,()=>delay(1700).then(()=>{step=1;updateConversation()})); break;
+                case 1: changeImageCrossFade('right',daftarFoto.kanan[3]); bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right');
+                    typeWriterBubble(bRight,"Hai juga, saya Chubby Salam kenal",45,()=>delay(1800).then(()=>{step=2;updateConversation()})); break;
+                case 2: changeImageCrossFade('right',daftarFoto.kanan[0]); bRight.innerText="Kamu apa kabar ?"; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(1550).then(()=>{step=3;updateConversation()}); break;
+                case 3: changeImageCrossFade('left',daftarFoto.kiri[2]); bLeft.innerText="Baik"; bLeft.style.opacity=1; bRight.style.opacity=0; animateCharacter('left'); delay(1250).then(()=>{step=4;updateConversation()}); break;
+                case 4: changeImageCrossFade('left',daftarFoto.kiri[0]); bLeft.innerText="Apa kabar kamu ?"; bLeft.style.opacity=1; bRight.style.opacity=0; animateCharacter('left'); delay(1650).then(()=>{step=5;updateConversation()}); break;
+                case 5: changeImageCrossFade('right',daftarFoto.kanan[0]); bRight.innerText="Baik juga"; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(1450).then(()=>{step=6;updateConversation()}); break;
+                case 6: changeImageCrossFade('right',daftarFoto.kanan[0]); bRight.innerText="Tinggal dimana?"; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(1600).then(()=>{step=7;updateConversation()}); break;
+                case 7: changeImageCrossFade('left',daftarFoto.kiri[0]); bLeft.innerText="Dihatimuuu"; bLeft.style.opacity=1; bRight.style.opacity=0; animateCharacter('left'); delay(1750).then(()=>{step=8;updateConversation()}); break;
+                case 8: changeImageCrossFade('right',daftarFoto.kanan[2]); bRight.innerText="Hoooeeekkk"; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(1450).then(()=>{step=9;updateConversation()}); break;
+                case 9: changeImageCrossFade('right',daftarFoto.kanan[1]); bRight.innerText="Gombal"; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(1400).then(()=>{step=10;updateConversation()}); break;
+                case 10: changeImageCrossFade('left',daftarFoto.kiri[1]); bLeft.innerText="Hahaha"; bLeft.style.opacity=1; bRight.style.opacity=0; animateCharacter('left'); delay(1650).then(()=>{step=11;updateConversation()}); break;
+                case 11: changeImageCrossFade('right',daftarFoto.kanan[0]); bRight.innerText="Hmm..."; bRight.style.opacity=1; bLeft.style.opacity=0; animateCharacter('right'); delay(2100).then(()=>{step=0;updateConversation()}); break;
             }
         }
 
-        setTimeout(updateConversation, 600);
+        setTimeout(updateConversation,700);
 
-        const textElement = document.getElementById("typing-text");
-        const fullText = "Ada pertanyaan atau obrolan ?";
-        let i = 0;
-        function typeWriter() {
-            if (i < fullText.length) {
-                textElement.innerHTML = fullText.substring(0, i + 1) + '<span class="typing-cursor"></span>';
-                i++;
-                setTimeout(typeWriter, 50);
-            } else {
-                textElement.innerHTML = fullText;
-            }
+        const textElement=document.getElementById("typing-text");
+        const fullText="Ada pertanyaan atau obrolan ?";
+        let i=0;
+        function typeWriter(){
+            if(i<fullText.length){textElement.innerHTML=fullText.substring(0,i+1)+'<span class="typing-cursor"></span>';i++;setTimeout(typeWriter,48)}
+            else{textElement.innerHTML=fullText}
         }
-        setTimeout(typeWriter, 1200);
+        setTimeout(typeWriter,1100);
     </script>
 </body>
 </html>
