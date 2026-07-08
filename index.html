@@ -10,7 +10,6 @@
         body{background:#0b0f19;color:#f3f4f6;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh;padding:20px;overflow-x:hidden;position:relative}
 
         .top-left-nav{position:absolute;top:20px;left:20px;z-index:20}
-        .top-center-nav{position:absolute;top:20px;left:50%;transform:translateX(-50%);z-index:20}
         .top-right-nav{position:absolute;top:20px;right:20px;z-index:20}
         
         .pill-link{
@@ -33,23 +32,6 @@
         }
         .pill-link:active{
             transform:scale(0.98);
-        }
-        .center-pill{
-            background:linear-gradient(90deg,#22c55e,#06b6d4);
-            color:#000;
-            border:1px solid rgba(34,211,238,.9);
-            box-shadow:0 4px 20px rgba(34,211,238,.5);
-        }
-        .center-pill:hover{
-            box-shadow:0 6px 25px rgba(34,211,238,.7);
-        }
-        .center-pill:active,
-        .center-pill:focus,
-        .center-pill:visited {
-            background:linear-gradient(90deg,#22c55e,#06b6d4) !important;
-            color:#000 !important;
-            transform:scale(0.98);
-            box-shadow:0 6px 25px rgba(34,211,238,.7);
         }
 
         /* Garis Lengkung */
@@ -166,7 +148,6 @@
 </head>
 <body>
     <div class="top-left-nav"><a href="https://ipix.fun" class="pill-link">iPix.Fun</a></div>
-    <div class="top-center-nav"><a href="https://ipixchat.my.id" class="pill-link center-pill">iPixChaT</a></div>
     <div class="top-right-nav"><a href="https://ipix.my.id" class="pill-link">ipix.my.id</a></div>
 
     <div class="chat-container">
@@ -195,6 +176,13 @@
         <h1 class="fade-text">Halo kamu !</h1>
         <p id="typing-text"></p>
         <a href="https://ipixchat.my.id" class="cta-btn">Mulai Obrolan di iPixChat</a>
+    </div>
+
+    <!-- Footer -->
+    <div style="margin-top: 40px; text-align: center; opacity: 0.7; font-size: 0.95rem; width: 100%; max-width: 460px;">
+        <a>2026 |</a>
+        <a href="https://ipixchat.my.id" style="color: #67e8f9; text-decoration: none; font-weight: 600;">iPixChaT
+        </a>
     </div>
 
     <script>
